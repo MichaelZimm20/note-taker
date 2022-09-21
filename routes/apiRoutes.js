@@ -11,7 +11,9 @@ router.get('/notes', (req, res) => {
 })
 
 
-
+// receives a new note to save on request body, and add to json file
 router.post('/notes', (req, res) => {
-    
+    req.body.id = db.length.toString();
+    let newNote = createNote(req.body, db);
+    res.json(newNote);
 })
