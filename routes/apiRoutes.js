@@ -4,6 +4,9 @@ const router = require('express').Router();
 // importing db.json()
 const db = require('../../db/db.json'); 
 
+// import note Functions from buildNote
+const { createNote, deleteNote } = require('../../lib/buildNote');
+
 // get notes and read db.json and returns all saved notes as json
 router.get('/notes', (req, res) => {
     let results = db;
