@@ -20,3 +20,9 @@ router.post('/notes', (req, res) => {
     let newNote = createNote(req.body, db);
     res.json(newNote);
 })
+
+
+
+
+// exports router
+module.exports = router;
