@@ -9,7 +9,7 @@ const app = express();
 
 
 
-//express to listen
+//express to listen and start server
 app.listen(3001, () => {
     console.log(`API server now on port ${PORT}!`);
   });
