@@ -20,20 +20,20 @@ router.get('/notes', (req, res) => {
 // receives a new note to save on request body, and add to json file
 router.post('/notes', (req, res) => {
     
-    // TODO: CREATE unique id. ask in office hours
+    // note Object to format new note 
     const noteToAdd = {
     title: req.body.title,
     text: req.body.text,
     id: uniqid(),
    }
-    // req.body.id = db.length.toString();
     let newNote = createNote(noteToAdd, db);
     res.json(newNote);
 })
 
 router.delete('/notes/:id', (req, res) => {
-    deleteNote(db, req.params.id);
+    deleteNote(req.params.id, db);
     console.log(req.params.id);
+    console.log(db);
     res.json(db);
 })
 

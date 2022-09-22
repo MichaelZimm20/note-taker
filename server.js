@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 
 //express to listen and start server
