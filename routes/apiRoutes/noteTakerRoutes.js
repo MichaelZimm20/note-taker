@@ -31,7 +31,11 @@ router.post('/notes', (req, res) => {
     res.json(newNote);
 })
 
-
+router.delete('/notes/:id', (req, res) => {
+    deleteNote(db, req.params.id);
+    console.log(req.params.id);
+    res.json(db);
+})
 
 
 // exports router
