@@ -1,5 +1,6 @@
 // define router: allows us to declare routes in any file as long as using the proper middleware. Can not use "app" because server.js is using it
 const router = require('express').Router();
+const fs = require('fs');
 
 // importing db.json() 
 const db = require('../../db/db.json'); 
@@ -12,8 +13,12 @@ const uniqid = require('uniqid');
 
 // get notes and read db.json and returns all saved notes as json
 router.get('/notes', (req, res) => {
-    let results = db;
-    res.json(results);
+    fs.readFile('../../db/db.json', "utf-8", (err, data) => {
+        let newDB = db;
+       
+        res.json(newDB);
+    })
+
 })
 
 
@@ -26,14 +31,16 @@ router.post('/notes', (req, res) => {
     text: req.body.text,
     id: uniqid(),
    }
+   // assign createNote function to variable and send it back to db.json
     let newNote = createNote(noteToAdd, db);
+    console.log(newNote);
     res.json(newNote);
 })
 
 router.delete('/notes/:id', (req, res) => {
-    deleteNote(req.params.id, db);
-    console.log(req.params.id);
-    console.log(db);
+    // take in the note id of deleted item and remove from json file
+    deleteNote(db, req.params.id);
+    console.log("id",req.params.id);
     res.json(db);
 })
 
