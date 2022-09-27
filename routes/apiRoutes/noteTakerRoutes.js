@@ -41,7 +41,9 @@ router.delete('/notes/:id', (req, res) => {
     // take in the note id of deleted item and remove from json file
     deleteNote(db, req.params.id);
     console.log("id",req.params.id);
+    console.log("current db",db);
     res.json(db);
+    
 })
 
 
