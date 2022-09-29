@@ -45,7 +45,7 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
  <br/><br/>
 
  ## Important Links 
-* GitHub Link: https://github.com/MichaelZimm20/team-profile-generator
+* GitHub Link: https://github.com/MichaelZimm20/note-taker
 
 * Heroku Link: https://note-taker-pro-max.herokuapp.com/
 
