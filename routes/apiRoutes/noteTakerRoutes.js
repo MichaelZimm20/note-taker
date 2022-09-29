@@ -15,10 +15,10 @@ const uniqid = require('uniqid');
 router.get('/notes', (req, res) => {
     fs.readFile('../../db/db.json', "utf-8", (err, data) => {
         let newDB = db;
-       
-        res.json(newDB);
+        console.log("data", data);
+        res.json(data);
     })
-
+   
 })
 
 
